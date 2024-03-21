@@ -1,0 +1,28 @@
+{
+  "name": "myschoolera-alx-final-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://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@github.com/yassirbrh/myschoolera-alx-final-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yassirbrh/myschoolera-alx-final-project/issues"
+  },
+  "homepage": "https://github.com/yassirbrh/myschoolera-alx-final-project#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.1",
+    "mongoose": "^8.2.2"
+  }
+}
