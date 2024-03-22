@@ -1,1 +1,0 @@
-# myschoolera-alx-final-project
