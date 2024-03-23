@@ -25,14 +25,19 @@ const userSchema = mongoose.Schema({
     },
     password: {
         type: String,
-        required: [true, "Please enter a password !!"],
-        match: [/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
-        "Password must be at least 8 characters long and contain both letters and numbers !!"
-        ]
+        required: [true, "Please enter a password !!"]
     },
     birthDate: {
         type: Date,
         required: [true, "Please enter your birth date !!"],
+    },
+    photo: {
+        type: String,
+        required: false
+    },
+    isAccepted: {
+        type: Boolean,
+        default: false
     }
 });
 
