@@ -6,6 +6,7 @@ const express = require('express');
 const errorHandler = require('./middlewares/errorMiddleware');
 const mongoose = require('mongoose');
 const userRoute = require('./routes/userRoute');
+const studentRoute = require('./routes/studentRoute');
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.use(express.urlencoded({ extended: false}));
 app.use(bodyParser.json());
 
 app.use("/api/users", userRoute);
+app.use("/api/students", studentRoute);
 
 
 app.get("/", (req, res) => {

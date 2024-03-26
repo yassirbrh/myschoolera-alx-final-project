@@ -13,12 +13,8 @@ const fileSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    gradeLevel: {
+    classID: {
         type: String,
-        required: true
-    },
-    gradeClass: {
-        type: Number,
         required: true
     }
 });
