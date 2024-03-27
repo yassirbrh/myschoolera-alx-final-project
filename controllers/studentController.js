@@ -1,4 +1,5 @@
 import Class from '../models/classModel';
+import File from '../models/fileModel';
 const asyncHandler = require('express-async-handler');
 
 const getGrades = asyncHandler(async (req, res) => {

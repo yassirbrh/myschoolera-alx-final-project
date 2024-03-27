@@ -7,6 +7,8 @@ const errorHandler = require('./middlewares/errorMiddleware');
 const mongoose = require('mongoose');
 const userRoute = require('./routes/userRoute');
 const studentRoute = require('./routes/studentRoute');
+const teacherRoute = require('./routes/teacherRoute');
+const adminRoute = require('./routes/adminRoute');
 
 const app = express();
 
@@ -17,6 +19,8 @@ app.use(bodyParser.json());
 
 app.use("/api/users", userRoute);
 app.use("/api/students", studentRoute);
+app.use("/api/teachers", teacherRoute);
+app.use("/api/admin", adminRoute);
 
 
 app.get("/", (req, res) => {
