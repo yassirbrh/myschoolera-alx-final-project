@@ -97,7 +97,6 @@ const loginUser = asyncHandler(async (req, res) => {
                 path: "/",
                 httpOnly: true,
                 expires: new Date(Date.now() + 1000 * 86400),
-                sameSite: "none",
                 secure: false
             })
             res.status(200).json({
