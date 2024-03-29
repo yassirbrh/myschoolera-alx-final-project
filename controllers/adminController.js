@@ -33,7 +33,6 @@ const loginAdmin = asyncHandler(async (req, res) => {
         path: "/",
         httpOnly: true,
         expires: new Date(Date.now() + 1000 * 86400),
-        sameSite: "none",
         secure: false
     });
     res.status(200).json({ adminPassword });
@@ -44,8 +43,7 @@ const logoutAdmin = asyncHandler(async (req, res) => {
         path: "/",
         httpOnly: true,
         expires: new Date(0),
-        sameSite: "none",
-        secure: true
+        secure: false
     });
     return res.status(200).json({ message: "Logged out !!"});
 });
