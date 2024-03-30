@@ -49,17 +49,32 @@ const logoutAdmin = asyncHandler(async (req, res) => {
 });
 
 const addClass = asyncHandler(async (req, res) => {
-    const { gradeLevel, gradeClass, studentsList, teachersList } = req.body;
-
-    const newClass = await Class.create({
-        gradeLevel, gradeClass, studentsList, teachersList
-    });
-    if (newClass) {
-        res.status(200).json({ message: 'New class created !!'});
-    } else {
-        res.status(400).json({ message: 'Class not created !!'});
+    const { gradeLevel, studentsList, teachersList } = req.body;
+  
+    // Retrieve gradeClass from the database based on the provided gradeLevel
+    const otherData = await OtherData.findOne();
+    if (!otherData) {
+      return res.status(500).json({ message: 'OtherData document not found' });
     }
-});
+    
+    const gradeClass = otherData.numberOfClassesInGrades[gradeLevel] || 0;
+  
+    // Create a new class with the retrieved gradeClass
+    const newClass = await Class.create({
+      gradeLevel, gradeClass, studentsList, teachersList
+    });
+  
+    if (newClass) {
+      // Increment the gradeClass value for the provided gradeLevel
+      otherData.numberOfClassesInGrades[gradeLevel] = gradeClass + 1;
+      await otherData.save();
+  
+      return res.status(200).json({ message: 'New class created !!'});
+    } else {
+      return res.status(400).json({ message: 'Class not created !!'});
+    }
+  });
+  
 
 const getTeachers = asyncHandler(async (req, res) => {
     const teachers = await Teacher.find();
