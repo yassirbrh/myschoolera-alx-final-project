@@ -15,7 +15,7 @@ const classSchema = new mongoose.Schema({
     },
     teachersList: {
         type: mongoose.Schema.Types.Mixed,
-        required: true
+        required: false
     },
     examScores: {
         type: mongoose.Schema.Types.Mixed,
