@@ -98,10 +98,14 @@ const loginUser = asyncHandler(async (req, res) => {
             const token = generateToken(_id);
             res.cookie("token", token, {
                 path: "/",
-                //httpOnly: true,
                 expires: new Date(Date.now() + 1000 * 86400),
                 secure: false
-            })
+            });
+            res.cookie("username", userName, {
+                path: "/",
+                expires: new Date(Date.now() + 1000 * 86400),
+                secure: false
+            });
             res.status(200).json({
                 _id, firstName, lastName, userName, email, birthDate, schoolSubject, token
             });
@@ -119,7 +123,11 @@ const loginUser = asyncHandler(async (req, res) => {
             const token = generateToken(_id);
             res.cookie("token", token, {
                 path: "/",
-                //httpOnly: true,
+                expires: new Date(Date.now() + 1000 * 86400),
+                secure: false
+            });
+            res.cookie("username", userName, {
+                path: "/",
                 expires: new Date(Date.now() + 1000 * 86400),
                 secure: false
             });
@@ -136,7 +144,11 @@ const loginUser = asyncHandler(async (req, res) => {
 const logoutUser = asyncHandler(async (req, res) => {
     res.cookie("token", "", {
         path: "/",
-        //httpOnly: true,
+        expires: new Date(0),
+        secure: false
+    });
+    res.cookie("username", "", {
+        path: "/",
         expires: new Date(0),
         secure: false
     });
