@@ -8,11 +8,13 @@ const getGrades = asyncHandler(async (req, res) => {
     if (foundClass) {
         const grades = {};
         for (const subject in foundClass.examScores) {
+            grades[subject] = {};
             grades[subject]['exam1'] = foundClass.examScores[subject]['exam1'][userUsername];
             grades[subject]['exam2'] = foundClass.examScores[subject]['exam2'][userUsername];
             grades[subject]['exam3'] = foundClass.examScores[subject]['exam3'][userUsername];
         }
-        res.status(200).json(grades);
+
+        res.status(200).json({ grades, foundClass });
     } else {
         res.status(404).json({ message: 'Class not found' });
     }
