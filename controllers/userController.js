@@ -90,12 +90,15 @@ const loginUser = asyncHandler(async (req, res) => {
         if (!isPasswordCorrect) {
             res.status(400);
             throw new Error("Password incorrect !!");
+        } else if (!isTeacherUsername.isAccepted) {
+            res.status(400);
+            throw new Error("The director didn't accept your request yet !! Please try to login after getting accepted")
         } else {
             const { _id, firstName, lastName, userName, email, birthDate, schoolSubject } = isTeacherUsername;
             const token = generateToken(_id);
             res.cookie("token", token, {
                 path: "/",
-                httpOnly: true,
+                //httpOnly: true,
                 expires: new Date(Date.now() + 1000 * 86400),
                 secure: false
             })
@@ -108,12 +111,15 @@ const loginUser = asyncHandler(async (req, res) => {
         if (!isPasswordCorrect) {
             res.status(400);
             throw new Error("Password incorrect !!");
+        } else if (!isStudentUsername.isAccepted) {
+            res.status(400);
+            throw new Error("The director didn't accept your request yet !! Please try to login after getting accepted")
         } else {
             const { _id, firstName, lastName, userName, email, birthDate, gradeLevel } = isStudentUsername;
             const token = generateToken(_id);
             res.cookie("token", token, {
                 path: "/",
-                httpOnly: true,
+                //httpOnly: true,
                 expires: new Date(Date.now() + 1000 * 86400),
                 secure: false
             });
@@ -130,7 +136,7 @@ const loginUser = asyncHandler(async (req, res) => {
 const logoutUser = asyncHandler(async (req, res) => {
     res.cookie("token", "", {
         path: "/",
-        httpOnly: true,
+        //httpOnly: true,
         expires: new Date(0),
         secure: false
     });
