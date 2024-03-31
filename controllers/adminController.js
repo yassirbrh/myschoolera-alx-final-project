@@ -57,7 +57,7 @@ const addClass = asyncHandler(async (req, res) => {
       return res.status(500).json({ message: 'OtherData document not found' });
     }
     
-    const gradeClass = otherData.numberOfClassesInGrades[gradeLevel] || 0;
+    const gradeClass = otherData.numberOfClassesInGrades[gradeLevel] || 1;
   
     // Create a new class with the retrieved gradeClass
     const newClass = await Class.create({
@@ -101,29 +101,32 @@ const getOtherData = asyncHandler(async (req, res) => {
 });
 
 const acceptUser = asyncHandler(async (req, res) => {
-    const { position, userName } = req.body;
+    const { userName } = req.body;
 
-    let model;
-    if (position === 'teacher') {
-        model = Teacher;
-    } else if (position === 'student') {
-        model = Student;
-    } else {
-        res.status(400).json({ message: 'Invalid position' });
-        return;
+    try {
+        let model;
+        const user = await Student.findOne({ userName });
+        if (user) {
+            model = Student;
+        } else {
+            const teacher = await Teacher.findOne({ userName });
+            if (teacher) {
+                model = Teacher;
+            } else {
+                res.status(404).json({ message: 'User not found' });
+                return;
+            }
+        }
+
+        await model.updateOne({ userName }, { isAccepted: true });
+        res.status(200).json({ message: 'User accepted successfully' });
+    } catch (error) {
+        console.error('Error accepting user:', error);
+        res.status(500).json({ message: 'Failed to accept user' });
     }
-
-    const user = await model.findOne({ userName });
-    if (!user) {
-        res.status(404).json({ message: 'User not found' });
-        return;
-    }
-
-    user.isAccepted = true;
-    await user.save();
-
-    res.status(200).json({ message: 'User accepted successfully' });
 });
+
+
 
 
 module.exports = {
