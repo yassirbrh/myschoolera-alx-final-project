@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta
+				name="description"
+				content="MySchoolEra is a user-friendly platform designed to help manage school-related tasks efficiently. It provides tools for organizing schedules, tracking assignments, and facilitating communication between students, teachers"
+				/>
+
+		<!-- Always include this line of code!!! -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link rel="icon" href="img/favicon.png" />
+		<link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
+		<link rel="manifest" href="manifest.webmanifest" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+				href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap"
+				rel="stylesheet"
+				/>
+
+		<link rel="stylesheet" href="css/general.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/queries.css" />
+
+		<script
+				type="module"
+				src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"
+				></script>
+		<script
+				nomodule=""
+				src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"
+				></script>
+
+		<script
+				defer
+				src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"
+				></script>
+		<script defer src="js/script.js"></script>
+
+		<title>MySchoolEra</title>
+	</head>
+	<body>
+		<header class="header">
+			<a href="/" style="text-decoration: none;">
+				<span class="logo" style="font-weight: bold; color: #333; font-size: 32px;">
+					<span style="color: #1a73e8;">M</span>y<span style="color: #ea4335;">S</span>chool<span style="color: #fbbc05;">E</span>ra
+				</span>
+			</a>
+			<nav class="main-nav">
+				<ul class="main-nav-list">
+					<li><a class="main-nav-link" href="/admin">login as Director</a></li>
+					<li>
+						<li><a class="main-nav-link" href="/login">Login</a></li>
+						<li>
+							<li><a class="main-nav-link nav-cta" href="/signup">Sign Up for free</a></li>
+				</ul>
+			</nav>
+
+			<button class="btn-mobile-nav">
+				<ion-icon class="icon-mobile-nav" name="menu-outline"></ion-icon>
+				<ion-icon class="icon-mobile-nav" name="close-outline"></ion-icon>
+			</button>
+		</header>
+
+		<main>
+			<section class="section-hero">
+				<div class="hero">
+					<div class="hero-text-box">
+						<h1 class="heading-primary">
+							See your school daily, from anywhere.
+						</h1>
+						<p class="hero-description">
+						MySchoolEra: The intelligent platform designed to support your educational journey every day of the year. Personalized to cater to your academic preferences and learning requirements.
+						</p>
+						<a href="/signup" class="btn btn--full margin-right-sm"
+							       >Sign Up Now</a
+						       >
+					</div>
+							<div class="hero-img-box">
+								<picture>
+									<source srcset="img/hero-min.png" type="image/png" />
+
+									<img
+											src="img/hero-min.png"
+											class="hero-img"
+											alt="Woman enjoying food, meals in storage container, and food bowls on a table"
+											/>
+								</picture>
+							</div>
+				</div>
+			</section>
+		</main>
+
+		<footer class="footer">
+			<div class="container grid grid--footer">
+
+				<div class="address-col">
+					<p class="footer-heading">Contact us</p>
+					<address class="contacts">
+						<p>
+						<a class="footer-link" href="mailto:hello@myschoolera.com"
+								       >hello@myschoolera.com</a>
+						</p>
+					</address>
+				</div>
+
+				<nav class="nav-col">
+					<p class="footer-heading">Account</p>
+					<ul class="footer-nav">
+						<li><a class="footer-link" href="#">Create account</a></li>
+						<li><a class="footer-link" href="#">Sign in</a></li>
+					</ul>
+				</nav>
+
+				<nav class="nav-col">
+					<p class="footer-heading">Company</p>
+					<ul class="footer-nav">
+						<li><a class="footer-link" href="#">About MySchoolEra</a></li>
+						<li><a class="footer-link" href="#">For Business</a></li>
+					</ul>
+				</nav>
+
+				<nav class="nav-col">
+					<p class="footer-heading">Resources</p>
+					<ul class="footer-nav">
+						<li><a class="footer-link" href="#">Help center</a></li>
+						<li><a class="footer-link" href="#">Privacy & terms</a></li>
+					</ul>
+				</nav>
+			</div>
+		</footer>
+	</body>
+</html>
