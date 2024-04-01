@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <!-- ======= Styles ====== -->
+    <link rel="stylesheet" href="dashboard/assets/css/style.css">
+</head>
+
+<body>
+    <!-- =============== Navigation ================ -->
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="/" style="text-decoration: none;">
+                        <span class="logo" style="font-weight: bold; color: #333; font-size: 32px;">
+                            <span style="color: #1a73e8;">M</span>y<span style="color: #ea4335;">S</span>chool<span style="color: #fbbc05;">E</span>ra
+                        </span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </span>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="#" id="logout">
+                        <span class="icon">
+                            <ion-icon name="log-out-outline"></ion-icon>
+                        </span>
+                        <span class="title">Log Out</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- ========================= Main ==================== -->
+        <div class="main">
+            <div class="topbar">
+                <div class="toggle">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </div>
+            </div>
+
+            <!-- ================ Order Details List ================= -->
+            <div class="details">
+                <div class="recentOrders">
+                    <div class="cardHeader">
+                        <h2>User requests</h2>
+                        <a href="#" class="btn">View All</a>
+                    </div>
+                
+                    <table id="data-table">
+                        <thead>
+                            <tr>
+                                <td>Username</td>
+                                <td>Position</td>
+                                <td>Action</td>
+                            </tr>
+                        </thead>
+                
+                        <tbody id="data-body">
+                            <!-- Table entries will be dynamically added here -->
+                        </tbody>
+                    </table>
+                </div>
+                
+
+                <!-- ================= New Customers ================ -->
+                <div class="recentCustomers">
+                    <div class="cardHeader">
+                        <h2>Add Class</h2>
+                    </div>
+                
+                    <form id="addClassForm">
+                        <div>
+                            <label for="gradeLevel" style="font-size: 16px; color: #e67e22;">Grade Level:</label>
+                            <select name="gradeLevel" id="gradeLevel" class="gradeLevelSelect" style="padding: 10px; font-size: 16px; border: 1px solid #e67e22; border-radius: 5px; cursor: pointer; background-color: #fff; color: #e67e22;">
+                                <option value="1">Grade 1</option>
+                                <option value="2">Grade 2</option>
+                                <option value="3">Grade 3</option>
+                                <option value="4">Grade 4</option>
+                                <option value="5">Grade 5</option>
+                                <option value="6">Grade 6</option>
+                                <option value="7">Grade 7</option>
+                                <option value="8">Grade 8</option>
+                                <option value="9">Grade 9</option>
+                                <option value="10">Grade 10</option>
+                                <option value="11">Grade 11</option>
+                                <option value="12">Grade 12</option>
+                            </select>
+                        </div>
+                        <div id="subjectsList">
+                            <!-- Subjects and teachers list will be populated here -->
+                        </div>
+                        <button type="submit" id="submitButton" class="submitButton" style="margin-top: 10px; padding: 10px 20px; font-size: 16px; background-color: #e67e22; color: #fff; border: none; border-radius: 5px; cursor: pointer;">Submit</button>
+                    </form>
+                    
+                </div>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- =========== Scripts =========  -->
+    <script src="dashboard/assets/js/main.js"></script>
+    <script src="js/logoutAdmin.js"></script>
+    <script src="js/acceptUser.js"></script>
+    <script src="js/addClass.js"></script>
+
+    <!-- ====== ionicons ======= -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
