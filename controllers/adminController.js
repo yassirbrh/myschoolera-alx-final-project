@@ -57,7 +57,7 @@ const addClass = asyncHandler(async (req, res) => {
       return res.status(500).json({ message: 'OtherData document not found' });
     }
     
-    const gradeClass = otherData.numberOfClassesInGrades[gradeLevel] || 1;
+    let gradeClass = otherData.numberOfClassesInGrades[gradeLevel];
   
     // Create a new class with the retrieved gradeClass
     const newClass = await Class.create({
@@ -66,14 +66,17 @@ const addClass = asyncHandler(async (req, res) => {
   
     if (newClass) {
       // Increment the gradeClass value for the provided gradeLevel
-      otherData.numberOfClassesInGrades[gradeLevel] = gradeClass + 1;
-      await otherData.save();
+      await OtherData.updateOne(
+        { _id: otherData._id },
+        { $inc: { [`numberOfClassesInGrades.${gradeLevel}`]: 1 } }
+      );
   
       return res.status(200).json({ message: 'New class created !!'});
     } else {
       return res.status(400).json({ message: 'Class not created !!'});
     }
-  });
+});
+
   
 
 const getTeachers = asyncHandler(async (req, res) => {
