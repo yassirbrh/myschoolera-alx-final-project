@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta
+				name="description"
+				content="MySchoolEra is a user-friendly platform designed to help manage school-related tasks efficiently. It provides tools for organizing schedules, tracking assignments, and facilitating communication between students, teachers"
+				/>
+
+		<!-- Always include this line of code!!! -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link rel="icon" href="img/favicon.png" />
+		<link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
+		<link rel="manifest" href="manifest.webmanifest" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+				href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap"
+				rel="stylesheet"
+				/>
+
+		<link rel="stylesheet" href="css/general.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/queries.css" />
+
+		<script
+				type="module"
+				src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"
+				></script>
+		<script
+				nomodule=""
+				src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"
+				></script>
+
+		<script
+				defer
+				src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"
+				></script>
+		<script defer src="js/script.js"></script>
+
+		<title>MySchoolEra</title>
+	</head>
+	<body>
+		<header class="header">
+			<a href="/" style="text-decoration: none;">
+				<span class="logo" style="font-weight: bold; color: #333; font-size: 32px;">
+					<span style="color: #1a73e8;">M</span>y<span style="color: #ea4335;">S</span>chool<span style="color: #fbbc05;">E</span>ra
+				</span>
+			</a>
+			<nav class="main-nav">
+				<ul class="main-nav-list">
+					<li><a class="main-nav-link" href="/admin">login as Director</a></li>
+					<li>
+						<li><a class="main-nav-link" href="/login">Login</a></li>
+						<li>
+							<li><a class="main-nav-link nav-cta" href="/signup">Sign Up for free</a></li>
+				</ul>
+			</nav>
+
+			<button class="btn-mobile-nav">
+				<ion-icon class="icon-mobile-nav" name="menu-outline"></ion-icon>
+				<ion-icon class="icon-mobile-nav" name="close-outline"></ion-icon>
+			</button>
+		</header>
+
+		<main>
+			<section class="section-cta" id="cta">
+				<div class="container">
+					<div class="cta">
+						<div class="cta-text-box">
+							<h2 class="heading-secondary">Sign Up now !!</h2>
+							<p class="cta-text">
+							Sign up as student or teacher !!
+							</p>
+
+							<form class="cta-form" name="signup" method="post" action="/signup">
+								<div>
+									<label for="first-name">First Name*</label>
+									<input
+											id="first-name"
+											type="text"
+											placeholder="First Name"
+											name="firstName"
+											required
+											/>
+								</div>
+								<div>
+									<label for="last-name">Last Name*</label>
+									<input
+											id="last-name"
+											type="text"
+											placeholder="Last Name"
+											name="lastName"
+											required
+											/>
+								</div>
+								<div>
+									<label for="user-name">Username*</label>
+									<input
+											id="user-name"
+											type="text"
+											placeholder="Username"
+											name="userName"
+											required
+											/>
+								</div>
+
+								<div>
+									<label for="email">Email address*</label>
+									<input
+											id="email"
+											type="email"
+											placeholder="name@example.com"
+											name="email"
+											required
+											/>
+								</div>
+
+								<div>
+									<label for="password">Password*</label>
+									<input
+											id="password"
+											type="password"
+											placeholder="Password"
+											name="password"
+											required
+											/>
+								</div>
+
+								<div>
+									<label for="birth-date">Birth Date*</label>
+									<input
+											id="birth-date"
+											type="date"
+											placeholder="YYYY-MM-DD"
+											name="birthDate"
+											required
+											/>
+								</div>
+
+
+								<div>
+									<label for="gender">Gender*</label>
+									<select id="select-gender" name="gender" required>
+										<option value="">Please choose one option:</option>
+										<option value="male">Male</option>
+										<option value="female">Female</option>
+									</select>
+								</div>
+
+								<div>
+									<label for="position">Position*</label>
+									<select id="select-position" name="position" required>
+										<option value="">Please choose one option:</option>
+										<option value="teacher">Teacher</option>
+										<option value="student">Student</option>
+									</select>
+								</div>
+
+								<div>
+									<label for="schoolSubject">School Subject (for teachers)</label>
+									<select id="schoolSubject" name="schoolSubject">
+										<option value="">Please choose a subject:</option>
+										<option value="Mathematics">Mathematics</option>
+										<option value="Science">Science</option>
+										<option value="English Language">English Language</option>
+										<option value="History">History</option>
+										<option value="Geography">Geography</option>
+										<option value="Computer Science">Computer Science</option>
+										<option value="Physical Education">Physical Education</option>
+									</select>
+								</div>
+
+
+								<div>
+									<label for="gradeLevel">Grade Level (for students)</label>
+									<select id="gradeLevel" name="gradeLevel">
+										<option value="">Please choose one option:</option>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+										<option value="6">6</option>
+										<option value="7">7</option>
+										<option value="8">8</option>
+										<option value="9">9</option>
+										<option value="10">10</option>
+										<option value="11">11</option>
+										<option value="12">12</option>
+									</select>
+								</div>
+
+								<button class="btn btn--form">Sign up now</button>
+
+								<!-- <input type="checkbox" />
+									<input type="number" /> -->
+							</form>
+						</div>
+						<div
+								class="cta-img-box1"
+								role="img"
+								aria-label="Woman enjoying food"
+								></div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<script src="js/signup.js"></script>
+	</body>
+</html>
